@@ -1,0 +1,103 @@
+devant_nsi.png
+
+C'était une journée ensoleillée, une brise agréable entrait dans les salles de classe de l'école, en particulier dans la salle d’informatique.
+J’attendais impatiemment devant la porte ouverte.
+Je pouvais voir les visages curieux de l’autre côté de la salle, les étudiants chuchotant excités.
+Je m’appelle [tn], et aujourd’hui, c' était mon premier jour de cours dans la spécialité de Numérique et Sciences Informatiques (NSI). J’ai changé ma spécialité et je ne connais rien de la technologie, quelle honte ! J’aurais choisi une autre meilleure spécialité, mais il y avait seulement deux options: NSI ou Sciences de la Vie et de la Terre. J’ai dû changer ma spécialité car je n'aimais pas beaucoup ma spé précédente, Humanités Littérature Philosophie. Je vais essayer que ça se passe bien…
+
+J'ai respiré profondément et je suis entré dans ma nouvelle classe.
+
+salle_de_nsi.png
+
+Monsieur n'était pas arrivé, et en observant la classe je me suis rendu compte qu'il n'y avait pas vraiment de personnes. Toutes étaient des personnes à qui je ne parlais pas, peut-être une ou deux fois quelques années auparavant.
+
+Mon regard est passé sur un certain garçon. Tadashi Fukuyama?!
+Je ne me rappellais pas que Tadashi était dans cette spé.
+Tadashi est un des garçons les plus populaires de notre école. Il est beau, intelligent, très poli et a toujours des bonnes notes. Toutes les filles sont amoureuses de lui.
+Cependant, ce que personne savait était que moi et Tadashi, nous étions meilleurs amis de petits… Mais après sa popularité, on a arrêté de parler.
+Quelle honte!
+
+Soudainement, Monsieur entre dans la salle, et s'assoit dans son bureau. Il fait l'appel.
+
+Monsieur: …. [tn] ?
+
+Tn: Présente !
+
+Monsieur: Ah ouais, tu es la nouvelle élève.
+
+Tn: Oui.
+
+Monsieur: Comme tu as été transféré tardivement, tu devras te rattraper le plus vite possible. As-tu déjà utilisé Python ?
+
+Oh non, comment expliquer que je ne connais rien de cette spécialité ?
+
+Tn: Non…
+
+Monsieur: Bon, ne t'inquiètes pas. Moi et tes nouveaux camarades, on t'aidera à te mettre à jour.
+
+Monsieur: Aujourd'hui, on commencera à faire les projets de l'année. Le travail est de créer une programmation de ce que vous voulez. Vous pouvez faire un jeu, un site web, ce que vous voulez.
+
+Monsieur: Comme [tn] ne sais pas comment programmer, quelqu'un qui sait bien comment programmer devra se mettre en groupe avec elle. Des volontaires ?
+
+Tadashi: (normal): Monsieur, je me propose d'aider mademoiselle [tn] et la recevoir dans mon groupe. Quelqu'un d'autre a besoin de mon aide?
+
+Aaron: (anxieux): Moi! Laissez moi être dans votre groupe s'il vous plaît !!!
+
+Monsieur: Bon, donc c'est décidé.
+
+Fille random 1: Ahh… Je voulais être avec Tadashi.
+
+Fille random 2: Ouais, avec lui, le projet aurait été si facile…
+
+Je me leva de ma chaise pour aller rejoindre les deux garçons, qui s'étaient déjà installés dans deux tables loin du professeur.
+
+Tadashi: Bienvenue mademoiselle [ta].
+
+Aaron: Coucou!
+
+On non… je ne me rappelle pas de son prénom! Comment s'appelait-il??
+
+Tn: Oh… eh… Bonjour Tadashi! Et…?
+
+Aaron: (curieux): Aaron. C'est la première fois qu'on parle, n'est-ce pas? C'est fou ça! Toutes ces années et on n'a parlé ni une fois…
+
+Tn: Haha ouais…
+
+Tn: Ah et, Tadashi… Je préférerais que tu m'appelles par mon prénom au lieu de mon nom. Et aussi, tu peux parler avec moi en langage familier, ça ne me dérange pas. Est-ce que ça te va?
+
+Tadashi: …
+
+Tadashi: Ok, [tn].
+
+Tadashi a donc commencé à nous expliquer les bases de la programmation.
+Je crois que je suis en train de comprendre peu à peu, avec ses explications efficaces et droit à l'essentiel.
+Puis, on s'est mit à chercher des idées pour notre projet.
+Après un temps…
+
+Aaron: (normal): Peut-être que tu te demandes pourquoi j'ai besoin de l'aide de Tadashi-kun.
+
+Il l'appelle "Tadashi-kun"?
+Tadashi n'a pas eue une réaction évidente. Il paraissait presque accoutumé.
+
+Aaron est en effet un mec un peu étrange.
+Quand je le vois, il est toujours en train de voir des dessins animés seul dans le récré. Je crois que ça s'appelle du… "animé"? Je pense que c'est du dessin animé mais du Japon spécifiquement. J'ai aussi entendu que les autres lui appelaient un "Otaku". Je me demande ce que cela signifie…
+
+Aaron: (pout): C'est que depuis le début d'année, même si j'ai pas sauté aucune classe, j'ai pas pû comprendre rien de rien de comment programmer!
+
+Tadashi: Si tu te donnes la peine tu arriveras.
+
+Aaron: (sérieux): Tadashi-kun fait que la programmation se voie facile, mais en vérité, NSI n'est pas du tout comme ça.
+
+Tadashi: (normal): Trêve de plaisanteries, on doit avancer. Quelles sont vos propositions pour le projet?
+
+Tn: Je propose un site web pour faire des amis et peut-être chercher un partenaire! Mais seulement les personnes de l'école pourront s'inscrire. On peut faire un test dans ce site là pour connaître les intérêts de tous, et puis les comparer et recommander des possibles amitiés aux utilisateurs…
+
+Aaron: (pout): Ça semble très ennuyaaaant.
+
+Aaron: (content): Je propose de faire une "visual novel" de animé! Il pourrait s'appeler : "Aaron's Bizarre Adventure"!
+
+Tadashi: Pourquoi ne pas mieux choisir de programmer un jeu vidéo d'aventure ? Le personnage du jeu devra accomplir des missions pour continuer son voyage…
+
+Tadashi: Comme [tn] est nouvelle, pourquoi pas qu'elle décide quel projet on va faire?
+
+Aaron: Bon, ok. Je suis d'accord.
