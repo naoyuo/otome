@@ -7,7 +7,7 @@ pygame.init()
 font = pygame.font.Font(None,30)
 player_name = 'name'
 current_scene = 0
-character_num = -1
+character_num = 0
 
 
 
@@ -148,14 +148,12 @@ class Dialogue:
                 words = ''
         text_showing = font.render(words,True, 'Black')
         screen.blit(text_showing, (x,y))
-
-    def show_character(self):
-        if self.names_in_dialogue[character_num] != character_names[0]:
-            image = name_to_image[self.names_in_dialogue[character_num]]
-            character = pygame.image.load('Images/Characters/'+image)
-            character = pygame.transform.scale(character,(1366,768))
-            character_rect = character.get_rect(midbottom = (683,768))
-            screen.blit(character, character_rect) 
+    # def show_character(self):
+    #     image = name_to_image[self.names_in_dialogue[character_num]]
+    #     character = pygame.image.load('Images/Characters/'+image)
+    #     character = pygame.transform.scale(character,(1366,768))
+    #     character_rect = character.get_rect(midbottom = (683,768))
+    #     screen.blit(character, character_rect) 
 
             
         
@@ -225,9 +223,6 @@ while running:
             list_obj_scenes[current_scene].current_line += 1
             list_obj_scenes[current_scene].change_background = True
             list_obj_scenes[current_scene].background_now()
-            # for i in list_obj_scenes[current_scene].lines_of_names:
-            #     if list_obj_scenes[current_scene].current_line == i:
-            #         character_num += 1
             if list_obj_scenes[current_scene].current_line in list_obj_scenes[current_scene].lines_of_names:
                 character_num +=1 
 
@@ -238,7 +233,7 @@ while running:
     background = pygame.transform.scale(background,(1366,768))
     screen.blit(background,(0,0))
 
-    list_obj_scenes[current_scene].show_character()
+    # list_obj_scenes[current_scene].show_character()
 
     caption = pygame.image.load('Images/Captions/'+caption_ord[caption_num])
     caption = pygame.transform.scale(caption,(1366,768))
