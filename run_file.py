@@ -154,10 +154,12 @@ class Dialogue:
 
         
 def show_buttons():
+    captions_loaded = []
+    for i in range(len(caption_list)):
+        x = pygame.image.load('Images/Captions/'+caption_list[i])
+        captions_loaded = pygame.transform.scale(x,(1366,768))
     #show textbox
-    caption = pygame.image.load('Images/Captions/'+caption_list[1])
-    caption = pygame.transform.scale(caption,(1366,768))
-    screen.blit(caption,(0,0))
+    screen.blit(captions_loaded[1],(0,0))
     #if Dialogue().current_line < 0:
 
 
