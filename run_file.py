@@ -7,7 +7,7 @@ pygame.init()
 font = pygame.font.Font(None,30)
 player_name = 'name'
 current_scene = 0
-character_num = 0
+#character_num = 0
 
 
 
@@ -84,15 +84,9 @@ class Dialogue:
                 if j in i:
                     self.backgrounds_index.append(text.index(i) - counter)
                     counter += 1
-        #Character name order
-        text = self.my_text
-        for i in range(len(text)):
-            for j in character_names:
-                if j in text[i]:
-                    self.names_in_dialogue.append(j) 
-                    self.lines_of_names.append(i)
 
-        
+
+
         
   
     
@@ -149,15 +143,19 @@ class Dialogue:
         text_showing = font.render(words,True, 'Black')
         screen.blit(text_showing, (x,y))
     def show_character(self):
-        image = name_to_image[self.names_in_dialogue[character_num]]
-        character = pygame.image.load('Images/Characters/'+image)
-        character = pygame.transform.scale(character,(1366,768))
-        character_rect = character.get_rect(midbottom = (683,768))
-        screen.blit(character, character_rect) 
+        whole_text = self.my_text
+        whole_line = whole_text[self.current_line]
+        for name in character_names:
+                if name in whole_line:
+                    image = name_to_image[name] 
+                    character = pygame.image.load('Images/Characters/'+image)
+                    character = pygame.transform.scale(character,(1366,768))
+                    character_rect = character.get_rect(midbottom = (683,768))
+                    screen.blit(character, character_rect) 
 
-print('hello')
-            
         
+
+
 
 
 
@@ -224,8 +222,7 @@ while running:
             list_obj_scenes[current_scene].current_line += 1
             list_obj_scenes[current_scene].change_background = True
             list_obj_scenes[current_scene].background_now()
-            if list_obj_scenes[current_scene].current_line in list_obj_scenes[current_scene].lines_of_names:
-                character_num +=1 
+
 
             
 
