@@ -1,4 +1,5 @@
 import pygame
+import re
 from os import listdir
 from os.path import isfile, join
 
@@ -7,6 +8,7 @@ pygame.init()
 font = pygame.font.Font(None,30)
 player_name = 'name'
 current_scene = 0
+clicking_screen = True
 
 
 
@@ -26,10 +28,14 @@ for name in character_names:
             name_to_image[name] = image
 
 
-
-
-
-
+#Captions & order
+mypath = 'Images/Captions'
+caption_images = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+caption_list = []
+for i in caption_images:
+    x = re.findall(".png$",i)
+    if x:
+        caption_list.append(i)
 
 
 
@@ -40,6 +46,9 @@ backgrounds_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 
 #Functions
+
+
+
 
 
 class Dialogue:
@@ -152,15 +161,15 @@ class Dialogue:
                     character_rect = character.get_rect(midbottom = (683,768))
                     screen.blit(character, character_rect) 
 
-        
-def show_buttons():
-    captions_loaded = []
-    for i in range(len(caption_list)):
-        x = pygame.image.load('Images/Captions/'+caption_list[i])
-        captions_loaded = pygame.transform.scale(x,(1366,768))
-    #show textbox
-    screen.blit(captions_loaded[1],(0,0))
-    #if Dialogue().current_line < 0:
+ 
+
+def forward_scene():
+    scenes[current_scene].current_line += 1
+    scenes[current_scene].change_background = True
+    scenes[current_scene].background_now()
+
+def backwards_scene():
+    scenes[current_scene].current_line -= 1
 
 
 
@@ -205,9 +214,9 @@ pygame.display.set_caption(basic_dic['name'])
 
 
 
-#Captions & order
-mypath = 'Images/Captions'
-caption_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    
+    
 
 
 #Buttons list
@@ -230,22 +239,43 @@ while running:
 
     if event.type == pygame.KEYUP:
         if event.key == pygame.K_SPACE:
-            scenes[current_scene].current_line += 1
-            scenes[current_scene].change_background = True
-            scenes[current_scene].background_now()
+            forward_scene()
+    
+    if event.type == pygame.MOUSEBUTTONUP:
+        if left_arrow_rect.collidepoint(event.pos):
+            clicking_screen = False
+            if scenes[current_scene].current_line > 0:
+                backwards_scene()
+        if not left_arrow_rect.collidepoint(event.pos):
+            clicking_screen = True
+        if clicking_screen == True:
+            forward_scene()
+
+
 
 
             
 
-            
+    #blit background
     background = pygame.image.load('Images/Backgrounds/'+scenes[current_scene].backgrounds_ord[scenes[current_scene].current_background])  
     background = pygame.transform.scale(background,(1366,768))
     screen.blit(background,(0,0))
 
+    #blit characters
     scenes[current_scene].show_character()
 
-    show_buttons()
+    #blit textbox
+    textbox = pygame.image.load('Images/Captions/'+caption_list[0])
+    textbox = pygame.transform.scale(textbox,(1366,768))
+    screen.blit(textbox,(0,0))
 
+    #blit arrows
+    left_arrow = pygame.image.load('Images/Buttons/speed_button2.png')
+    left_arrow = pygame.transform.scale(left_arrow, (100,100))
+    left_arrow_rect = left_arrow.get_rect(midbottom = (116,748))
+    screen.blit(left_arrow, left_arrow_rect)
+
+    #blit dialogue
     scenes[current_scene].print_dialogue()
 
     pygame.display.update()
