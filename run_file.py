@@ -9,7 +9,7 @@ player_name = 'name'
 current_scene = 0
 
 print('jivnskvpsoiv')
-a = True
+a = False
 
 
 
