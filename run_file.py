@@ -7,7 +7,9 @@ pygame.init()
 font = pygame.font.Font(None,30)
 player_name = 'name'
 current_scene = 0
-#character_num = 0
+
+print('jivnskvpsoiv')
+a = True
 
 
 
@@ -52,7 +54,7 @@ class Dialogue:
         #object variables
         self.path = path_text
         self.my_text = []
-        self.current_line = 0
+        self.current_line = 0 
         self.current_background = 0
         self.change_background = False
         self.backgrounds_ord = []
