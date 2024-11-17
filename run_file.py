@@ -140,6 +140,7 @@ class Dialogue:
                 words = ''
         text_showing = font.render(words,True, 'Black')
         screen.blit(text_showing, (x,y))
+    
     def show_character(self):
         whole_text = self.my_text
         whole_line = whole_text[self.current_line]
@@ -152,6 +153,14 @@ class Dialogue:
                     screen.blit(character, character_rect) 
 
         
+def show_buttons():
+    #show textbox
+    caption = pygame.image.load('Images/Captions/'+caption_list[1])
+    caption = pygame.transform.scale(caption,(1366,768))
+    screen.blit(caption,(0,0))
+    #if Dialogue().current_line < 0:
+
+
 
 
 
@@ -164,10 +173,10 @@ texts_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 
 #Scenes objects
-list_obj_scenes = []
+scenes = []
 for x in range(len(texts_list)):
     a = Dialogue('Texts/'+texts_list[x])
-    list_obj_scenes.append(a)
+    scenes.append(a)
 
 
 
@@ -194,14 +203,16 @@ pygame.display.set_caption(basic_dic['name'])
 
 
 
-#Cptions & order
+#Captions & order
 mypath = 'Images/Captions'
 caption_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
-with open('Information/caption_order.txt', encoding='utf-8') as f:
-    lines = f.read()
-caption_ord = lines.split('\n')
-caption_num = 0
+
+#Buttons list
+mypath = 'Images/Buttons'
+buttons_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+
 
 
 
@@ -217,24 +228,22 @@ while running:
 
     if event.type == pygame.KEYUP:
         if event.key == pygame.K_SPACE:
-            list_obj_scenes[current_scene].current_line += 1
-            list_obj_scenes[current_scene].change_background = True
-            list_obj_scenes[current_scene].background_now()
+            scenes[current_scene].current_line += 1
+            scenes[current_scene].change_background = True
+            scenes[current_scene].background_now()
 
 
             
 
             
-    background = pygame.image.load('Images/Backgrounds/'+list_obj_scenes[current_scene].backgrounds_ord[list_obj_scenes[current_scene].current_background])  
+    background = pygame.image.load('Images/Backgrounds/'+scenes[current_scene].backgrounds_ord[scenes[current_scene].current_background])  
     background = pygame.transform.scale(background,(1366,768))
     screen.blit(background,(0,0))
 
-    list_obj_scenes[current_scene].show_character()
+    scenes[current_scene].show_character()
 
-    caption = pygame.image.load('Images/Captions/'+caption_ord[caption_num])
-    caption = pygame.transform.scale(caption,(1366,768))
-    screen.blit(caption,(0,0))
+    show_buttons()
 
-    list_obj_scenes[current_scene].print_dialogue()
+    scenes[current_scene].print_dialogue()
 
     pygame.display.update()
