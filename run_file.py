@@ -8,11 +8,6 @@ font = pygame.font.Font(None,30)
 player_name = 'name'
 current_scene = 0
 
-print('jivnskvpsoiv')
-a = 2
-
-
-
 
 
 #Character names & images
