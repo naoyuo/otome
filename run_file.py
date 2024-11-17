@@ -14,6 +14,7 @@ a = 2
 
 
 
+
 #Character names & images
 with open('Information/characters_speak.txt', encoding='utf-8') as f:
     lines = f.read()
