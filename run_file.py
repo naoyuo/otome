@@ -60,12 +60,14 @@ class Dialogue:
         self.path = path_text
         self.my_text = []
         self.current_line = 0 
+        self.max_line = 0
         self.current_background = ''
         self.backgrounds_ord = []
         self.backgrounds_index = []
         self.background_to_index = {}
         self.names_in_dialogue =[]
         self.lines_of_names = []
+        self.dialogue = []
         #Usable text
         with open(self.path, encoding='utf-8') as f:
             lines = f.read()
@@ -77,6 +79,9 @@ class Dialogue:
                 self.my_text.remove(' ')
             else:
                 None
+        #Max line when stop scene
+        # self.dialogue = self.only_dialogue()
+        # self.max_line = len(self.dialogue)
         #Background name order
         text = self.my_text
         for i in text:
@@ -163,7 +168,13 @@ class Dialogue:
 
  
 
+def forward():
+    # if 0 <= a < scenes[current_scene].max_line:
+        scenes[current_scene].current_line += 1
 
+def backwards():
+    # if 0 <= a < scenes[current_scene].max_line:
+        scenes[current_scene].current_line -= 1
 
 
 
@@ -222,23 +233,20 @@ while running:
         running = False
 
     if event.type == pygame.KEYUP:
-        if event.key == pygame.K_SPACE:
-            scenes[current_scene].current_line += 1
+        if event.key == pygame.K_SPACE or event.key == pygame.K_RIGHT:
+            forward()
         if event.key == pygame.K_LEFT:
-            scenes[current_scene].current_line -= 1
-        if event.key == pygame.K_RIGHT:
-            scenes[current_scene].current_line += 1
+            backwards()
         
     
     if event.type == pygame.MOUSEBUTTONUP:
         if left_arrow_rect.collidepoint(event.pos):
             clicking_screen = False
-            if scenes[current_scene].current_line > 0:
-                scenes[current_scene].current_line -= 1
+            backwards()
         if not left_arrow_rect.collidepoint(event.pos):
             clicking_screen = True
         if clicking_screen == True:
-            scenes[current_scene].current_line += 1
+            forward()
 
 
 
