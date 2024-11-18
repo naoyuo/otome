@@ -60,10 +60,10 @@ class Dialogue:
         self.path = path_text
         self.my_text = []
         self.current_line = 0 
-        self.current_background = 0
-        self.change_background = False
+        self.current_background = ''
         self.backgrounds_ord = []
         self.backgrounds_index = []
+        self.background_to_index = {}
         self.names_in_dialogue =[]
         self.lines_of_names = []
         #Usable text
@@ -89,7 +89,9 @@ class Dialogue:
         for i in text:
             for j in backgrounds_list:
                 if j in i:
-                    self.backgrounds_index.append(text.index(i) - counter)
+                    x = text.index(i) - counter
+                    self.backgrounds_index.append(x)
+                    self.background_to_index[x] = j
                     counter += 1
 
 
@@ -114,12 +116,10 @@ class Dialogue:
         return dialogue
     
     def background_now(self):
-        x = self.backgrounds_index
-        if self.change_background == True:
-            for i in x:
-                    if self.current_line == i:
-                        self.current_background += 1
-        self.change_background = False
+        for i in self.backgrounds_index:
+            if self.current_line >= i :
+                self.current_background = self.background_to_index[i]
+        
     
     def print_dialogue(self):
         text = self.only_dialogue()
@@ -163,15 +163,6 @@ class Dialogue:
 
  
 
-def forward_scene():
-    scenes[current_scene].current_line += 1
-    scenes[current_scene].change_background = True
-    scenes[current_scene].background_now()
-
-def backwards_scene():
-    scenes[current_scene].current_line -= 1
-
-
 
 
 
@@ -209,19 +200,12 @@ pygame.display.set_caption(basic_dic['name'])
 
 
 
-
-
-
-
-
-
-    
-    
-
-
 #Buttons list
 mypath = 'Images/Buttons'
 buttons_list = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+
+
 
 
 
@@ -239,17 +223,22 @@ while running:
 
     if event.type == pygame.KEYUP:
         if event.key == pygame.K_SPACE:
-            forward_scene()
+            scenes[current_scene].current_line += 1
+        if event.key == pygame.K_LEFT:
+            scenes[current_scene].current_line -= 1
+        if event.key == pygame.K_RIGHT:
+            scenes[current_scene].current_line += 1
+        
     
     if event.type == pygame.MOUSEBUTTONUP:
         if left_arrow_rect.collidepoint(event.pos):
             clicking_screen = False
             if scenes[current_scene].current_line > 0:
-                backwards_scene()
+                scenes[current_scene].current_line -= 1
         if not left_arrow_rect.collidepoint(event.pos):
             clicking_screen = True
         if clicking_screen == True:
-            forward_scene()
+            scenes[current_scene].current_line += 1
 
 
 
@@ -257,8 +246,9 @@ while running:
             
 
     #blit background
-    background = pygame.image.load('Images/Backgrounds/'+scenes[current_scene].backgrounds_ord[scenes[current_scene].current_background])  
-    background = pygame.transform.scale(background,(1366,768))
+    scenes[current_scene].background_now()
+    background = pygame.image.load('Images/Backgrounds/'+scenes[current_scene].current_background)  
+    background = pygame.transform.scale(background,(1366,768))  
     screen.blit(background,(0,0))
 
     #blit characters
